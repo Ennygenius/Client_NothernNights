@@ -22,6 +22,7 @@ const EditTrack = () => {
   const [recieverName, setRecieverName] = useState("");
   const [recieverNumber, setRecieverNumber] = useState("");
   const [trackingStatus, setTrackingStatus] = useState("");
+  const [recieverEmail, setRecieverEmail] = useState("");
   const [seviceMode, setSeviceMode] = useState("");
 
   const formData = new FormData();
@@ -35,6 +36,7 @@ const EditTrack = () => {
   formData.append("recieverNumber", recieverNumber);
   formData.append("seviceMode", seviceMode);
   formData.append("trackingStatus", trackingStatus);
+  formData.append("recieverEmail", recieverEmail);
   formData.append("image", goodsImage);
 
   useEffect(() => {
@@ -61,6 +63,7 @@ const EditTrack = () => {
         goodsImage,
         recieverName,
         recieverNumber,
+        recieverEmail,
         trackingStatus,
         seviceMode,
       } = response.data.info;
@@ -76,6 +79,7 @@ const EditTrack = () => {
       setTo(to);
       setRecieverName(recieverName);
       setRecieverNumber(recieverNumber);
+      setRecieverEmail(recieverEmail);
       setTrackingStatus(trackingStatus);
       setSeviceMode(seviceMode);
     };
@@ -241,6 +245,20 @@ const EditTrack = () => {
             value={recieverNumber}
             onChange={(e) => {
               setRecieverNumber(e.target.value);
+            }}
+            placeholder=""
+            className="w-full p-3 border border-blue-200  "
+          />
+        </div>
+        <div className="my-5">
+          <label className="" htmlFor="">
+            Reciever Email
+          </label>
+          <input
+            type="email"
+            value={recieverEmail}
+            onChange={(e) => {
+              setRecieverEmail(e.target.value);
             }}
             placeholder=""
             className="w-full p-3 border border-blue-200  "
